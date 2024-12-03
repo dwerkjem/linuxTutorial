@@ -1,0 +1,87 @@
+\section{Prerequisites}
+Before you start installing Debian, you need to have a few things ready. Here is a list of things that you need to have before you start installing Debian:
+\begin{itemize}
+    \item A computer with at least 2GB of RAM and 20GB of free space and a 64-bit processor
+    \item A USB drive with at least 4GB of space
+    \item A keyboard and mouse
+    \item An internet connection (optional but recommended)
+    \item A phone or a laptop to read this tutorial
+    \item A phone or a laptop to download the Debian ISO file and to create a bootable USB drive
+\end{itemize}
+
+\section{Downloading Debian} 
+The first step in installing Debian is to download the Debian ISO file. The Debian ISO file is a file that contains the Debian operating system. You can download the Debian ISO file from the Debian website. Here is how you can download the Debian ISO file: https://www.debian.org/
+
+\section{Creating a bootable USB drive}
+
+The next step in installing Debian is to create a bootable USB drive. A bootable USB drive is a USB drive that contains the Debian ISO file and can be used to install Debian on your computer. You can create a bootable USB drive using a program called Rufus. Rufus is a free and open-source program that can be used to create bootable USB drives. You can download Rufus from the Rufus website. Here is how you can create a bootable USB drive using Rufus:
+
+\begin{itemize}
+    \item Download Rufus from the Rufus website
+    \item Insert the USB drive into your computer
+    \item Open Rufus
+    \item Select the USB drive that you want to use
+    \item Select the Debian ISO file that you downloaded
+    \item Click on the start button
+    \item select DD mode and click on start
+    \item Wait for Rufus to finish creating the bootable USB drive
+    \item Once Rufus has finished creating the bootable USB drive, you can remove the USB drive from your computer
+\end{itemize}
+
+\section{Booting from the USB drive}
+
+The next step in installing Debian is to boot from the USB drive. To boot from the USB drive, you need to restart your computer and enter the BIOS or UEFI settings. The BIOS or UEFI settings are the settings that control how your computer boots. You can enter the BIOS or UEFI settings by pressing a key on your keyboard when your computer starts up. The key that you need to press depends on your computer. Here is how you can enter the BIOS or UEFI settings:
+
+\begin{itemize}
+    \item Restart your computer
+    \item Press the key that you need to press to enter the BIOS or UEFI settings (usually F2, F10, or Del)
+    \item Select the USB drive as the boot device
+    \item Save the settings and exit the BIOS or UEFI settings
+    \item Your computer will now boot from the USB drive
+    \item You will see the Debian installer
+\end{itemize}
+
+\section{Installing Debian (installer)}
+
+The next step in installing Debian is to install Debian using the Debian installer. The Debian installer is a program that guides you through the installation process. You can use the Debian installer to install Debian on your computer. Here is how you can install Debian using the Debian installer:
+
+
+\begin{itemize}
+    \item Select the language that you want to use
+    \item Select your keyboard layout 
+    \subitem If you are not sure, select the default option
+    \item select your network connection 
+    \subitem most likely you will want to use a wired connection if you have one
+    \subitem if you do not have a wired connection, you can select the option to use a wireless connection
+    \item Enter your hostname
+    \subitem The hostname is the name of your computer on the network
+    \subitem You can enter any name that you want
+    \item Enter your domain name
+    \subitem The domain name is the name of your network 
+    \subitem You can skip this step if you do not have a domain name
+    \item Enter your root password
+    \subitem The root password is the password that you will use to log in as the root user AKA the superuser Administrator on Windows
+    \subitem You can enter any password that you want but make sure that it is secure and that you remember it 
+    \subitem \textbf{THERE IS NO WAY TO RECOVER A LOST ROOT PASSWORD. IF YOU FORGET IT, YOU WILL HAVE TO REINSTALL DEBIAN.}
+    \item Enter your desired name this is not your username but the name that you want to use for your account 
+    \item Enter your username
+    \item Enter your password
+    \subitem The password is the password that you will use to log in to your account
+    \subitem You can enter any password that you want but make sure that it is secure and that you remember it
+    \item Select your time zone
+    \subitem The time zone is the time zone that you are in do not worry about this if you're always moving enter the time zone that you are in most of the time 
+    \item Partition your disk
+    \subitem if you want to use the entire disk for Debian, you can select the option to use the entire disk
+    \subitem if you want to partition the disk yourself, you can select the option to partition the disk yourself
+    \subitem if you are not sure, you can select the default option
+    \subitem select all files in one partition
+    \item Wait for Debian to finish partitioning the disk and installing the base system
+    \item configure the package manager
+    \subitem select the mirror country that is closest to you 
+    \subitem select the mirror that is closest to you or select the default option
+    \item select no proxy
+    \item select the software that you want to install
+    \subitem if you are not sure, select the following options:
+    \subsubitem Debian desktop environment
+      
+\end{itemize}

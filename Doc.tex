@@ -1,0 +1,72 @@
+\documentclass{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{listings}
+\usepackage{xcolor} % Use xcolor instead of color for more options
+
+% Define custom colors
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{codemauve}{rgb}{0.58,0,0.82}
+\definecolor{codeorange}{rgb}{0.8,0.33,0}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+% Define Bash language for listings
+\lstdefinelanguage{bash}{
+    keywords={sudo, mv, cp, rm, ls, cd, mkdir, rmdir, chown, chmod, touch, echo, exit, apt, apt-get, dpkg, systemctl, service, useradd, usermod, passwd, nano, vim, git, clone, push, pull, commit},
+    keywordstyle=\color{blue}\bfseries,
+    ndkeywords={if, then, else, fi, for, in, do, done, exit, return, set, function},
+    ndkeywordstyle=\color{codepurple}\bfseries,
+    identifierstyle=\color{black},
+    sensitive=true,
+    comment=[l]{\#},
+    commentstyle=\color{codegreen}\ttfamily,
+    stringstyle=\color{codeorange}\ttfamily,
+    morestring=[b]',
+    morestring=[b]"
+}
+
+% Define the style for Bash listings
+\lstdefinestyle{bashstyle}{
+    backgroundcolor=\color{backcolour},
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue}\bfseries,
+    ndkeywordstyle=\color{codepurple}\bfseries,
+    identifierstyle=\color{black},
+    commentstyle=\color{codegreen}\ttfamily,
+    stringstyle=\color{codeorange}\ttfamily,
+    stepnumber=1,
+    numbersep=10pt,
+    tabsize=2,
+    breaklines=true,
+    breakatwhitespace=false,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    captionpos=b,
+    language=bash
+}
+
+\lstset{style=bashstyle}
+
+\begin{document}
+
+\chapter{How to use this tutorial}
+\section{Introduction}
+This tutorial was made to aid my friend in installing and configuring Linux on his laptop. It is made to cover edge cases and to be as simple as possible. This tutorial is made for beginners and is not meant to be a comprehensive guide to Linux. I hope someone finds this tutorial useful and that it helps them in their journey to learn Linux.
+
+\section{How to use this tutorial}
+The tutorial is divided into chapters. Each chapter covers a specific topic. The chapters are meant to be read in order. The tutorial is meant to be read on a phone or a laptop while you are installing Linux on your computer.\par
+
+A chapter will start with a brief introduction to the topic and then will have a list of steps that you need to follow. The steps are meant to be followed in order. Each step will have a brief explanation of what you need to do. The steps are meant to be simple and easy to follow. If you have any questions or need help, feel free to ask me. I will try to help you as much as I can.\par
+
+\input{installing/what.tex}
+\input{installing/installing.tex}
+\input{installing/configuring.tex}
+
+\end{document}

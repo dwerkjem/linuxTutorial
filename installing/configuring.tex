@@ -1,0 +1,123 @@
+\chapter{Configuring Debian}
+
+You will need to do some system configuration after installing Debian to achieve optimal performance style and functionality. This chapter will guide you through the process of configuring Debian to your liking.
+
+\section{Adding terminal shortcuts}
+
+Press \texttt{Ctrl+Alt+T} to open a terminal. If this shortcut does not work, you can add a custom shortcut to open a terminal. Search for \texttt{keyboard} in the application menu and open the keyboard settings. Click on the \texttt{Shortcuts} tab and then click on the \texttt{Custom Shortcuts} option. Click on the \texttt{+} button to add a new shortcut. In the command field, type \texttt{gnome-terminal} and in the shortcut field, press the keys you want to use to open the terminal. I use \texttt{Ctrl+Alt+T} to open the terminal.
+
+\section{Adding your user to the sudo group}
+
+To add your user to the sudo group, open a terminal and type the following command:
+
+\begin{lstlisting}
+su
+
+usermod -aG sudo {username}
+\end{lstlisting}
+
+Replace \texttt{\{username\}} with your username.
+
+\section{Proprietary drivers}
+
+Debian does not include proprietary drivers by default. If you have hardware that requires proprietary drivers, you will need to install them manually. To install proprietary drivers, open the \texttt{Konsole} terminal and type the following command:
+
+\begin{lstlisting}
+sudo tee /etc/apt/sources.list > /dev/null <<EOF
+deb http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
+
+deb http://deb.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
+
+deb http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
+deb-src http://deb.debian.org/debian bookworm-updates main contrib non-free non-free-firmware
+EOF
+
+sudo apt update
+sudo apt install nvidia-driver # use the appropriate driver for your hardware
+\end{lstlisting}
+
+Replace \texttt{nvidia-driver} with the appropriate driver for your hardware.
+
+\section{installing Discord}
+
+To install Discord, open the Discover application and add Snap support. To add Snap support, go to the Snap Store and open settings. Click on the \texttt{Enable Snapd} option. After enabling Snapd, restart your computer. Open the Discover application and search for Discord. Click on the installation button to install Discord. Steam and Spotify should be installed in the same way. 
+
+\section{Installing extra software}
+
+To install most software, you can use the \texttt{apt} package manager. To install software, open the \texttt{Konsole} terminal and type the following command:
+
+\begin{lstlisting}
+sudo apt update
+sudo apt install {package-name}
+\end{lstlisting}
+
+Replace \texttt{\{package-name\}} with the name of the package you want to install.
+
+recommended software to install:
+
+\begin{lstlisting}
+sudo apt install neofetch htop gparted vlc vim git curl wget snapd netselect-apt gnome-tweaks openvpn qbittorrent zsh zsh-syntax-highlighting zsh-autosuggestions 
+\end{lstlisting}
+
+\section{Replace the default shell}
+
+The default shell in Debian is \texttt{bash}. You can replace the default shell with \texttt{zsh}. To install \texttt{zsh}, open the \texttt{Konsole} terminal and type the following command:
+
+\begin{lstlisting}
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+\end{lstlisting}
+
+After installing \texttt{zsh}, you will need to change the default shell. To change the default shell, open the \texttt{Konsole} terminal and type the following command:
+
+\begin{lstlisting}
+chsh -s $(which zsh)
+\end{lstlisting}
+
+\section{Change the default terminal}
+
+The default terminal in Debian is \texttt{Konsole}. You can replace the default terminal with \texttt{wezterm}. To install \texttt{wezterm}, open the \texttt{Konsole} terminal and type the following command:
+
+\begin{lstlisting}
+curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
+echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+sudo apt update
+sudo apt install wezterm
+\end{lstlisting}
+
+After installing \texttt{wezterm}, you will need to change the default terminal. To change the default terminal, rebind the terminal shortcut to run \texttt{darktile} instead of \texttt{Konsole}.
+
+\section{Configuring the terminal}
+
+To configure the terminal, open the terminal and type the following command:
+
+\begin{lstlisting}
+nano ~/.wezterm.lua
+\end{lstlisting}
+
+
+Add the following configuration to the \texttt{.wezterm.lua} file:
+
+\begin{lstlisting}
+
+    local wezterm = require 'wezterm'
+
+    -- This will hold the configuration.
+    local config = wezterm.config_builder()
+    
+    -- This is where you actually apply your config choices
+    
+    -- For example, changing the color scheme:
+    config.color_scheme = 'LiquidCarbonTransparent'
+    config.hide_tab_bar_if_only_one_tab = true
+    
+    -- Set background transparency
+    config.window_background_opacity = 0.8  -- Adjust this value for desired transparency (0.0 to 1.0)
+    -- config.window_background_image = '/path/to/picture'
+    -- and finally, return the configuration to wezterm
+    return config
+    
+\end{lstlisting}
+
+
